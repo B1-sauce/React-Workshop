@@ -1,5 +1,20 @@
 //TODO
+import React from 'react';
+import ListItem from './ListItem.jsx';
 
-{/* <div class = "list">
-  <div>List Item</div>
-</div> */}
+var List = (props) => {
+  return (
+    <div className="list">
+      {
+        props.drinks.map((drink) =>
+          <ListItem
+            drink={drink}
+            key={drink.idDrink}
+            handleClick={props.handleClick}
+          />)
+      }
+    </div>
+  )
+}
+
+export default List;

@@ -1,21 +1,27 @@
 //TODO
+import React from 'react';
+import FavoriteItem from './FavoriteItem.jsx';
 
-// if favorites exist
+var Favorites = (props) => {
+  if (props.favoriteDrinks.length > 0) {
+    return (
+      <div>
+        <h3>Favorites</h3>
+        <div className="favoritesList">
+          {
+          props.favoriteDrinks.map((drink, index) =>
+          <FavoriteItem
+          drink={drink}
+          key={index}
+          />)
+          }
+        </div>
+      </div>
+    )
+  } else {
+    return (<div>No favoriteDrinks</div>)
+  }
+}
 
-// <div>
-//   <h3>Favorites</h3>
-//   <div class = "favoritesList">
-//     <div>
-//       <h4>Favorite drink 1 name</h4>
-//       <div class = "imgDiv">
-//         <img src = {favorite drink 1 src}/>
-//       </div>
-//     </div>
-//     <div>
-//       <h4>Favorite drink 2 name</h4>
-//       <div class = "imgDiv">
-//         <img src = {favorite drink 2 src}/>
-//       </div>
-//     </div>
-//   </div>
-// </div>
+export default Favorites;
+
